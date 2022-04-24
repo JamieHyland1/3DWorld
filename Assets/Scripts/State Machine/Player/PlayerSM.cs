@@ -152,8 +152,8 @@ using UnityEngine.InputSystem;
             wallSlide  = new WallSlideState(this, playerTransform, groundCheck, wallCheck, controls,  ref controller, groundLayer, animator, helper);
             moveState  = new MoveState(this, animator,  playerTransform,  cam,  accelCurve, controls, ref controller, ref move,  moveSpeed,  runSpeed,  turnSmoothVelocity,  turnSmoothTime, groundLayer, helper );
             airMoveState  = new AirMoveState(this, animator,  playerTransform,  cam, wallCheck,  accelCurve, controls, ref controller, ref move,  moveSpeed,  runSpeed,  turnSmoothVelocity,  turnSmoothTime, groundLayer, helper );
-            dashState  = new DashState(this, ref controller, animator,dashCurve,playerTransform,runSpeed, dashDistance, helper);
-            slideState = new SlidingState(this, playerTransform,groundCheck, cam, ref controller, controls,  animator, turnSmoothTime, turnSmoothVelocity);
+            dashState  = new DashState(this, ref controller, animator,dashCurve,playerTransform, runSpeed*4, dashDistance, helper);
+            slideState = new SlidingState(this, playerTransform,groundCheck, cam, ref controller, controls,  animator, 0.4f, 0.3f);
             animator.SetBool("IsDashing",isDashing);
            
             // controls.Gameplay.Slide.started += ctx =>  this.ChangeState(this.slideState);

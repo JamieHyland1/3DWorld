@@ -301,14 +301,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
             ""id"": ""6feb2e0f-de12-4f36-9677-48e713c4389d"",
             ""actions"": [
                 {
-                    ""name"": ""Jump"",
-                    ""type"": ""Button"",
-                    ""id"": ""d52c957c-5d7f-460b-9389-233a0c97d4a4"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": ""Press(behavior=2)""
-                },
-                {
                     ""name"": ""Move"",
                     ""type"": ""Value"",
                     ""id"": ""03530f72-835b-4c5c-a150-1b9f1abb8d0b"",
@@ -323,36 +315,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """"
-                },
-                {
-                    ""name"": ""Slide"",
-                    ""type"": ""Button"",
-                    ""id"": ""286b860b-1e49-4ba9-9fe4-e862ea3fc6b3"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": ""Hold""
-                },
-                {
-                    ""name"": ""Dash"",
-                    ""type"": ""Button"",
-                    ""id"": ""7bd72054-4d2d-4b20-8849-805a234b4af0"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": ""Hold""
                 }
             ],
             ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""a396293f-7594-49b7-806c-9cac281ed995"",
-                    ""path"": ""<XInputController>/buttonSouth"",
-                    ""interactions"": ""Press"",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Jump"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
                 {
                     ""name"": """",
                     ""id"": ""44ba5cc1-4368-4279-b3f7-5c499ef52a01"",
@@ -372,28 +337,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Rotate"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""0edef1c6-440f-4e00-a115-797fc1cc2c14"",
-                    ""path"": ""<Gamepad>/leftTrigger"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Slide"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""e0cc9178-9464-43c3-bf05-f7abc54c3324"",
-                    ""path"": ""<Gamepad>/rightTrigger"",
-                    ""interactions"": ""Press"",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Dash"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -500,11 +443,8 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_Sliding_Slide = m_Sliding.FindAction("Slide", throwIfNotFound: true);
         // Dash
         m_Dash = asset.FindActionMap("Dash", throwIfNotFound: true);
-        m_Dash_Jump = m_Dash.FindAction("Jump", throwIfNotFound: true);
         m_Dash_Move = m_Dash.FindAction("Move", throwIfNotFound: true);
         m_Dash_Rotate = m_Dash.FindAction("Rotate", throwIfNotFound: true);
-        m_Dash_Slide = m_Dash.FindAction("Slide", throwIfNotFound: true);
-        m_Dash_Dash = m_Dash.FindAction("Dash", throwIfNotFound: true);
         // WallJump
         m_WallJump = asset.FindActionMap("WallJump", throwIfNotFound: true);
         m_WallJump_Jump = m_WallJump.FindAction("Jump", throwIfNotFound: true);
@@ -738,20 +678,14 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     // Dash
     private readonly InputActionMap m_Dash;
     private IDashActions m_DashActionsCallbackInterface;
-    private readonly InputAction m_Dash_Jump;
     private readonly InputAction m_Dash_Move;
     private readonly InputAction m_Dash_Rotate;
-    private readonly InputAction m_Dash_Slide;
-    private readonly InputAction m_Dash_Dash;
     public struct DashActions
     {
         private @PlayerControls m_Wrapper;
         public DashActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Jump => m_Wrapper.m_Dash_Jump;
         public InputAction @Move => m_Wrapper.m_Dash_Move;
         public InputAction @Rotate => m_Wrapper.m_Dash_Rotate;
-        public InputAction @Slide => m_Wrapper.m_Dash_Slide;
-        public InputAction @Dash => m_Wrapper.m_Dash_Dash;
         public InputActionMap Get() { return m_Wrapper.m_Dash; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -761,40 +695,22 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         {
             if (m_Wrapper.m_DashActionsCallbackInterface != null)
             {
-                @Jump.started -= m_Wrapper.m_DashActionsCallbackInterface.OnJump;
-                @Jump.performed -= m_Wrapper.m_DashActionsCallbackInterface.OnJump;
-                @Jump.canceled -= m_Wrapper.m_DashActionsCallbackInterface.OnJump;
                 @Move.started -= m_Wrapper.m_DashActionsCallbackInterface.OnMove;
                 @Move.performed -= m_Wrapper.m_DashActionsCallbackInterface.OnMove;
                 @Move.canceled -= m_Wrapper.m_DashActionsCallbackInterface.OnMove;
                 @Rotate.started -= m_Wrapper.m_DashActionsCallbackInterface.OnRotate;
                 @Rotate.performed -= m_Wrapper.m_DashActionsCallbackInterface.OnRotate;
                 @Rotate.canceled -= m_Wrapper.m_DashActionsCallbackInterface.OnRotate;
-                @Slide.started -= m_Wrapper.m_DashActionsCallbackInterface.OnSlide;
-                @Slide.performed -= m_Wrapper.m_DashActionsCallbackInterface.OnSlide;
-                @Slide.canceled -= m_Wrapper.m_DashActionsCallbackInterface.OnSlide;
-                @Dash.started -= m_Wrapper.m_DashActionsCallbackInterface.OnDash;
-                @Dash.performed -= m_Wrapper.m_DashActionsCallbackInterface.OnDash;
-                @Dash.canceled -= m_Wrapper.m_DashActionsCallbackInterface.OnDash;
             }
             m_Wrapper.m_DashActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @Jump.started += instance.OnJump;
-                @Jump.performed += instance.OnJump;
-                @Jump.canceled += instance.OnJump;
                 @Move.started += instance.OnMove;
                 @Move.performed += instance.OnMove;
                 @Move.canceled += instance.OnMove;
                 @Rotate.started += instance.OnRotate;
                 @Rotate.performed += instance.OnRotate;
                 @Rotate.canceled += instance.OnRotate;
-                @Slide.started += instance.OnSlide;
-                @Slide.performed += instance.OnSlide;
-                @Slide.canceled += instance.OnSlide;
-                @Dash.started += instance.OnDash;
-                @Dash.performed += instance.OnDash;
-                @Dash.canceled += instance.OnDash;
             }
         }
     }
@@ -881,11 +797,8 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     }
     public interface IDashActions
     {
-        void OnJump(InputAction.CallbackContext context);
         void OnMove(InputAction.CallbackContext context);
         void OnRotate(InputAction.CallbackContext context);
-        void OnSlide(InputAction.CallbackContext context);
-        void OnDash(InputAction.CallbackContext context);
     }
     public interface IWallJumpActions
     {

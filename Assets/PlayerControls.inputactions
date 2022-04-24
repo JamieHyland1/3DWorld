@@ -288,14 +288,6 @@
             "id": "6feb2e0f-de12-4f36-9677-48e713c4389d",
             "actions": [
                 {
-                    "name": "Jump",
-                    "type": "Button",
-                    "id": "d52c957c-5d7f-460b-9389-233a0c97d4a4",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "Press(behavior=2)"
-                },
-                {
                     "name": "Move",
                     "type": "Value",
                     "id": "03530f72-835b-4c5c-a150-1b9f1abb8d0b",
@@ -310,36 +302,9 @@
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": ""
-                },
-                {
-                    "name": "Slide",
-                    "type": "Button",
-                    "id": "286b860b-1e49-4ba9-9fe4-e862ea3fc6b3",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "Hold"
-                },
-                {
-                    "name": "Dash",
-                    "type": "Button",
-                    "id": "7bd72054-4d2d-4b20-8849-805a234b4af0",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "Hold"
                 }
             ],
             "bindings": [
-                {
-                    "name": "",
-                    "id": "a396293f-7594-49b7-806c-9cac281ed995",
-                    "path": "<XInputController>/buttonSouth",
-                    "interactions": "Press",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Jump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
                 {
                     "name": "",
                     "id": "44ba5cc1-4368-4279-b3f7-5c499ef52a01",
@@ -359,28 +324,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "Rotate",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "0edef1c6-440f-4e00-a115-797fc1cc2c14",
-                    "path": "<Gamepad>/leftTrigger",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Slide",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "e0cc9178-9464-43c3-bf05-f7abc54c3324",
-                    "path": "<Gamepad>/rightTrigger",
-                    "interactions": "Press",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Dash",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

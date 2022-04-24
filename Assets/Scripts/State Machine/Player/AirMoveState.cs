@@ -65,7 +65,7 @@ using UnityEngine.InputSystem;
             //decide on wether you should have a floaty jump depending on holding the jump button or not
             // controls.Air_Move.Jump.started += ctx => jumpButtonHeld = false;
             // controls.Air_Move.Jump.canceled += ctx => jumpButtonHeld = true;
-            if(playerSM.getCurrentSpeed() > walkSpeed) speed = playerSM.getCurrentSpeed(); else speed = walkSpeed;
+            //if(playerSM.getCurrentSpeed() > walkSpeed) speed = playerSM.getCurrentSpeed(); else speed = walkSpeed;
             //Sometime when changing states, controller input can lag and not register immediately causing player to immediately decellerate
             //capture the direction of the player when leaving a certain state, then compare the magnitude to see which is greater then apply that instead
             // move.x = playerSM.getDirection().x;
@@ -133,8 +133,8 @@ using UnityEngine.InputSystem;
            public void Exit()
         {
             jumpButtonHeld = false;
-           playerSM.setVelocity(Vector3.zero);
-            playerSM.setCurrentSpeed(0);
+            playerSM.setVelocity(Vector3.zero);
+            playerSM.setCurrentSpeed(speed);
             playerSM.setDirection(Vector3.zero);
             controls.Air_Move.Disable();
          

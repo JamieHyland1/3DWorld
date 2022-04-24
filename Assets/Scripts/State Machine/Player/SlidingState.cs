@@ -73,7 +73,7 @@ using Unity.Collections.LowLevel.Unsafe;
             direction = new Vector3(move.x, 0f, move.y);
             float angle = 0;
             moveDirection = new Vector3();
-            PhysicsHelper.Instance.rotateCharacter(direction,playerTransform,cam,turnSmoothTime,turnSmoothVelocity, out moveDirection, out angle);
+            PhysicsHelper.Instance.rotateCharacter(direction,playerTransform,cam,0.025f,0, out moveDirection, out angle);
             velocity.x = moveDirection.x * speed;
             velocity.z = moveDirection.z * speed;
             if(speed < maxSpeed)speed += 0.095f;
@@ -100,6 +100,8 @@ using Unity.Collections.LowLevel.Unsafe;
             playerSM.setDirection(direction);
             controls.Sliding.Disable();
             animator.SetBool("IsSliding", false);
+            animator.SetTrigger("ExitSlide");
+
         }
     }
 

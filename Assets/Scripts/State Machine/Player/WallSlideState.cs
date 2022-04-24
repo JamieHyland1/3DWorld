@@ -20,7 +20,7 @@ using UnityEngine;
         Animator animator;
         bool onWall;
         Vector3 normal;
-        float timer = 1;
+        float timer = 2f;
         float counter = 0;
         public WallSlideState(PlayerSM playerSM, Transform playerTransform, Transform groundCheck, Transform wallCheck, PlayerControls controls, ref CharacterController controller, LayerMask layer, Animator animator, PhysicsHelper helper){
             this.playerSM = playerSM;
@@ -51,16 +51,18 @@ using UnityEngine;
         public void Tick(){
             onWall   = PhysicsHelper.Instance.checkPos(wallCheck.position, 2f, layer);
             
+            
+
             playerSM.isGrounded = PhysicsHelper.Instance.checkGroundCollision(playerSM.isGrounded,groundCheck,layer);
             RaycastHit hit = PhysicsHelper.Instance.getHitInfo(wallCheck.position,playerTransform.forward,5f,layer);
             if(hit.collider != null)normal = hit.normal;
             
-            
+            counter -= Time.deltaTime;
+            if(counter <= 0)playerSM.ChangeState(playerSM.airMoveState);
             velocity = PhysicsHelper.Instance.applyGravity(velocity,true);
             Debug.DrawLine(wallCheck.position,wallCheck.position+(playerTransform.forward*2),Color.black,0.2f);
     
             controller.Move(velocity * Time.deltaTime);
-
 
             // if(!onWall && !playerSM.isGrounded)playerSM.ChangeState(playerSM.airMoveState);
             if(playerSM.isGrounded == true)playerSM.ChangeState(playerSM.moveState);

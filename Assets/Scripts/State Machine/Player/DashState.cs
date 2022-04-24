@@ -25,7 +25,6 @@ using UnityEngine.InputSystem;
         this.animator = animator;
         this.dashCurve = dashCurve;
         this.playerTransform = playerTransform;
-       
         this.speed = speed;
         this.dashDistance = DashDistance;
         this.helper = helper;
@@ -65,9 +64,7 @@ using UnityEngine.InputSystem;
         {
              Debug.Log("Dash left stick " + Gamepad.current.leftStick.IsActuated());
          
-            if(Vector3.Distance(playerTransform.position, dashLocation) > 0.1f){
-                
-                
+            if(Vector3.Distance(playerTransform.position, dashLocation) > 0.1f){ 
                 float amount = dashCurve.Evaluate(animationTimePosition);
                 nextPos = Vector3.Lerp(playerTransform.position,dashLocation,(amount));
                 if(Physics.CheckSphere(nextPos + Vector3.up*controller.height, controller.height,playerSM.groundLayer))endDash();
