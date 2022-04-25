@@ -58,6 +58,8 @@ using UnityEngine.InputSystem;
         }
         public void Enter()
         {
+            Debug.Log("In Air Move state");
+            controls = new PlayerControls();
             controls.Air_Move.Enable();
             controls.Air_Move.Move.performed += ctx => move = ctx.ReadValue<Vector2>();
             controls.Air_Move.Move.canceled  += ctx => move = Vector2.zero;
@@ -127,6 +129,7 @@ using UnityEngine.InputSystem;
             
         }
         public void InitiateDash(){
+            Debug.Log("Dash called from airMove state");
             playerSM.setVelocity(velocity);
             playerSM.ChangeState(playerSM.dashState);
         }
