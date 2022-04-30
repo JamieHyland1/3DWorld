@@ -80,10 +80,7 @@ public class MoveState : IState
             controller.center = new Vector3(0,4.3f,0);
             controller.radius = 1.5f;
 
-            Debug.Log("Move velocity " + velocity);
-            Debug.Log("Move speed " + speed);
-            Debug.Log("Move direction " + direction);
-
+         
 
         }
 
@@ -151,9 +148,9 @@ public class MoveState : IState
         
         public void Exit()
         {
-            // playerSM.setDirection(direction);
-            // playerSM.setVelocity(velocity);
-            // playerSM.setCurrentSpeed(new Vector3(velocity.x,0f,velocity.y).magnitude);
+            playerSM.setDirection(direction);
+            playerSM.setVelocity(velocity);
+            playerSM.setCurrentSpeed(new Vector3(velocity.x,0f,velocity.y).magnitude);
             controls.Ground_Move.Disable();
         }
   

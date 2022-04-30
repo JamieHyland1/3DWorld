@@ -136,6 +136,7 @@ using UnityEngine.InputSystem;
             controller = this.GetComponent<CharacterController>();
             controls = new PlayerControls();
             playerTransform = this.gameObject.transform;
+            EventManager.current.OnPlayerEnter+=PlayerDashRingContact;
             // controls.Gameplay.Move.performed +=  ctx => handleMoveInput(ctx.ReadValue<Vector2>());
             // // controls.Gameplay.Move.canceled  +=  ctx => handleMoveInput(ctx);
             // controls.Gameplay.Jump.started   +=  ctx => handleJumpInput(ctx);
@@ -255,6 +256,14 @@ using UnityEngine.InputSystem;
 
         //     }    
         // }
+
+
+        private void PlayerDashRingContact(Vector3 ringPos, Vector3 ringDir){
+        // Debug.Log(ringPos);
+        this.transform.position = ringPos; 
+        this.transform.forward = ringDir;
+        this.ChangeState(dashState);
+    }
     }
 
     

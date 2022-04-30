@@ -136,9 +136,9 @@ using UnityEngine.InputSystem;
            public void Exit()
         {
             jumpButtonHeld = false;
-            playerSM.setVelocity(Vector3.zero);
+            playerSM.setVelocity(velocity);
             playerSM.setCurrentSpeed(speed);
-            playerSM.setDirection(Vector3.zero);
+            playerSM.setDirection(direction);
             controls.Air_Move.Disable();
          
         }

@@ -53,7 +53,8 @@ using UnityEngine.InputSystem;
 
         public void Exit()
         {
-           Debug.Log("Exiting Dash State");
+          
+
         }
 
         public void FixedTick(){
@@ -82,7 +83,7 @@ using UnityEngine.InputSystem;
             animationTimePosition = 0;
             Vector3 vel = playerSM.getVelocity();
             Vector3 velDir = vel.normalized;
-           // playerSM.setVelocity(new Vector3(velDir.x*PhysicsHelper.Instance.afterDashSpeed,vel.y,velDir.z*PhysicsHelper.Instance.afterDashSpeed));
+            playerSM.setVelocity(new Vector3(velDir.x*PhysicsHelper.Instance.afterDashSpeed,vel.y,velDir.z*PhysicsHelper.Instance.afterDashSpeed));
             playerSM.setCurrentSpeed(PhysicsHelper.Instance.afterDashSpeed);
             velocity = Vector3.zero;
             animator.SetBool("IsDashing",false);
