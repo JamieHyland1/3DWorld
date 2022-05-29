@@ -53,7 +53,8 @@ using UnityEngine.InputSystem;
 
         public void Exit()
         {
-           Debug.Log("Exiting Dash State");
+          
+
         }
 
         public void FixedTick(){
