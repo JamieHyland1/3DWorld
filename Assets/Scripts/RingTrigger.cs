@@ -1,3 +1,4 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,7 @@ public class RingTrigger : MonoBehaviour
 {
     // Start is called before the first frame update
     private void OnTriggerEnter(Collider other){
+        Debug.Log(this.gameObject.name + " " + "COLLIDED WITH " + other.gameObject.name);
         if(other.gameObject.name == "Player")EventManager.current.OnPlayerTriggerEnter(transform.position,transform.forward);
         
     }

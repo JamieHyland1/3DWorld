@@ -26,5 +26,10 @@ using System.Threading.Tasks;
         {
             throw new NotImplementedException();
         }
+
+        public void PrintStateName(){
+
+        }
+        public void EventTrigger(){}
     }
 

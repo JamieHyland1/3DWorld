@@ -1,5 +1,4 @@
 
-
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,10 +6,10 @@ using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.LowLevel;
 
 public class MoveState : IState
-    {
+{
         PlayerSM playerSM;
         CharacterController controller;
-        
+        public string STATE_NAME = "Move State";
         Transform playerTransform;
         Transform cam;
         Vector2 move;
@@ -144,7 +143,6 @@ public class MoveState : IState
         public void InitiateDash(){
             playerSM.ChangeState(playerSM.dashState);
         }
-
         
         public void Exit()
         {
@@ -173,5 +171,11 @@ public class MoveState : IState
                 playerSM.ChangeState(playerSM.slideState);
             }
         }
+
+        public void PrintStateName(){
+            Debug.Log(STATE_NAME);
+        }
+
+        public void EventTrigger(){}
     }
 
