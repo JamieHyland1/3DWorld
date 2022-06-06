@@ -1,4 +1,7 @@
-﻿using System;
+﻿using System.Security.AccessControl;
+using System.Globalization;
+using System.Threading;
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -137,11 +140,7 @@ using UnityEngine.InputSystem;
             controls = new PlayerControls();
             playerTransform = this.gameObject.transform;
             EventManager.current.OnPlayerEnter+=PlayerDashRingContact;
-            // controls.Gameplay.Move.performed +=  ctx => handleMoveInput(ctx.ReadValue<Vector2>());
-            // // controls.Gameplay.Move.canceled  +=  ctx => handleMoveInput(ctx);
-            // controls.Gameplay.Jump.started   +=  ctx => handleJumpInput(ctx);
-            // controls.Gameplay.Jump.canceled  +=  ctx => handleJumpInput(ctx);
-            // controls.Gameplay.Dash.performed +=  ctx => handleDashInput(ctx);
+         
             controls.Enable();
             helper = PhysicsHelper.Instance;
             helper.gravity = gravity;
@@ -246,23 +245,23 @@ using UnityEngine.InputSystem;
             return velocity*-1;
         }   
 
-        // void OnDrawGizmos(){
-        //     if(Application.isPlaying){
-        //         Gizmos.DrawSphere(wallCheck.position,0.1f);
-        //         Gizmos.DrawSphere(wallCheck.position + Vector3.right * controller.radius,0.1f);
-        //         Gizmos.DrawSphere(wallCheck.position + (Vector3.left * controller.radius) + playerTransform.forward ,0.1f);
-        //         Debug.Log(helper.checkPos(wallCheck.position,0.1f,groundLayer) + " " + helper.checkPos(wallCheck.position + Vector3.left * controller.radius,0.1f,groundLayer)+ " " + helper.checkPos(wallCheck.position + Vector3.right * controller.radius,0.1f,groundLayer));
-
-
-        //     }    
-        // }
+        void OnDrawGizmos(){
+            if(Application.isPlaying){
+                Gizmos.DrawSphere(wallCheck.position,1f);
+            }    
+        }
 
 
         private void PlayerDashRingContact(Vector3 ringPos, Vector3 ringDir){
-        // Debug.Log(ringPos);
-        this.transform.position = ringPos; 
-        this.transform.forward = ringDir;
-        this.ChangeState(dashState);
+        if(this.currentState == dashState){
+            this.transform.position = ringPos; 
+            this.transform.forward = ringDir;
+            this.currentState.EventTrigger();
+        }else{
+            this.transform.position = ringPos; 
+            this.transform.forward = ringDir;
+            this.ChangeState(dashState);
+        }
     }
     }
 

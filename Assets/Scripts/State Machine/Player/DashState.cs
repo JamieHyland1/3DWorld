@@ -1,10 +1,13 @@
-﻿using System;
+﻿
+
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
     public class DashState : IState
     {
+        readonly String STATE_NAME = "Dash Slide State";
         PlayerSM playerSM;
         Animator animator;
         Vector3 velocity;
@@ -51,9 +54,14 @@ using UnityEngine.InputSystem;
 
         }
 
-        public void Exit()
-        {
-          
+        public void Exit(){
+            animationTimePosition = 0;
+            Vector3 vel = playerSM.getVelocity();
+            Vector3 velDir = vel.normalized;
+            playerSM.setVelocity(new Vector3(velDir.x*PhysicsHelper.Instance.afterDashSpeed,vel.y,velDir.z*PhysicsHelper.Instance.afterDashSpeed));
+            playerSM.setCurrentSpeed(PhysicsHelper.Instance.afterDashSpeed);
+            velocity = Vector3.zero;
+            animator.SetBool("IsDashing",false);
 
         }
 
@@ -68,26 +76,26 @@ using UnityEngine.InputSystem;
             if(Vector3.Distance(playerTransform.position, dashLocation) > 0.1f){ 
                 float amount = dashCurve.Evaluate(animationTimePosition);
                 nextPos = Vector3.Lerp(playerTransform.position,dashLocation,(amount));
-                if(Physics.CheckSphere(nextPos + Vector3.up*controller.height, controller.height,playerSM.groundLayer))endDash();
+                if(Physics.CheckSphere(nextPos + Vector3.up*controller.height, controller.height,playerSM.groundLayer))playerSM.RevertState();
                 Debug.Log((Physics.CheckSphere(nextPos + Vector3.up*4, controller.height/2,playerSM.groundLayer) + " " + (nextPos + Vector3.up*4))); 
                 controller.Move((nextPos-playerTransform.position) * speed * Time.deltaTime);
                 float t = Time.deltaTime;
                 animationTimePosition += t;
 
             }else{
-              endDash();
+              playerSM.ChangeState(playerSM.moveState);
             }
         }
 
-        void endDash(){
-            animationTimePosition = 0;
-            Vector3 vel = playerSM.getVelocity();
-            Vector3 velDir = vel.normalized;
-            playerSM.setVelocity(new Vector3(velDir.x*PhysicsHelper.Instance.afterDashSpeed,vel.y,velDir.z*PhysicsHelper.Instance.afterDashSpeed));
-            playerSM.setCurrentSpeed(PhysicsHelper.Instance.afterDashSpeed);
-            velocity = Vector3.zero;
-            animator.SetBool("IsDashing",false);
-            playerSM.ChangeState(playerSM.moveState);
+        
+
+        public void PrintStateName(){
+            Debug.Log(STATE_NAME);
+        }
+        // TODO: Create event class that will handle various events for various states
+        public void EventTrigger(){
+            this.Enter();
+            Debug.Log("DASH RING ENCOUNTERED WHILE IN DASH STATE");
         }
     }
 

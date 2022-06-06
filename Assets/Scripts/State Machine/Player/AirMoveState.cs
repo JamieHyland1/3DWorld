@@ -1,6 +1,4 @@
 
-
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -10,7 +8,7 @@ using UnityEngine.InputSystem;
     {
         PlayerSM playerSM;
         CharacterController controller;
-        
+        string STATE_NAME = "Air Move State";
         Transform playerTransform;
         Transform wallCheck;
         Transform cam;
@@ -74,7 +72,7 @@ using UnityEngine.InputSystem;
             // move.y = playerSM.getDirection().z;
             velocity = playerSM.getVelocity();
             speed = playerSM.getCurrentSpeed();
-
+            direction = playerSM.getDirection(); 
             controller.height = 5.5f;
             controller.center = new Vector3(0,5.8f,0.5f);
             controller.radius = 1.5f;
@@ -102,8 +100,8 @@ using UnityEngine.InputSystem;
                 controls.Air_Move.Enable();
                 velocity = PhysicsHelper.Instance.applyGravity(velocity,true); 
 
-
-                if(PhysicsHelper.Instance.checkPos(wallCheck.position,1f,layer) && playerSM.isGrounded == false)playerSM.ChangeState(playerSM.wallSlide);
+                Debug.Log(wallCheck.position);
+                if(PhysicsHelper.Instance.checkPos(wallCheck.position,0.5f,layer) && playerSM.isGrounded == false)playerSM.ChangeState(playerSM.wallSlide);
 
                 Vector3 currDirection = new Vector3(move.x, 0f, move.y);
                 Debug.Log("Air Move " + direction.magnitude);
@@ -125,7 +123,10 @@ using UnityEngine.InputSystem;
 
             playerSM.isGrounded = helper.checkGroundCollision(playerSM.isGrounded,playerSM.groundCheck,layer);
 
-            if(playerSM.isGrounded)playerSM.ChangeState(playerSM.moveState);
+              if(playerSM.isGrounded == true){
+                velocity = Vector3.zero;
+                playerSM.ChangeState(playerSM.moveState);
+            }
             
         }
         public void InitiateDash(){
@@ -133,16 +134,29 @@ using UnityEngine.InputSystem;
             playerSM.setVelocity(velocity);
             playerSM.ChangeState(playerSM.dashState);
         }
-           public void Exit()
-        {
+
+        public void Exit(){
             jumpButtonHeld = false;
             playerSM.setVelocity(velocity);
             playerSM.setCurrentSpeed(speed);
             playerSM.setDirection(direction);
             controls.Air_Move.Disable();
-         
         }
-          
+
+        //   void OnDrawGizmos(){
+        //     if(Application.isPlaying){
+        //        // Gizmos.Color(Color.red);
+             
+        //         Gizmos.DrawSphere(wallCheck.position,1);
+        //     } 
+        //   }
+
+        public void PrintStateName(){
+            Debug.Log(STATE_NAME);
+        }
+
+
+        public void EventTrigger(){}
    
     }
 

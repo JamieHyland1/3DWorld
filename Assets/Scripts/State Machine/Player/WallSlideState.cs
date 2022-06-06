@@ -6,13 +6,13 @@ using UnityEngine;
 
     public class WallSlideState : IState
     {
+        readonly String STATE_NAME = "Wall Slide State";
         PhysicsHelper helper;
         PlayerSM playerSM;
         Transform playerTransform;
         Transform groundCheck;
         Transform wallCheck;
         PlayerControls controls;
-       
         CharacterController controller;
         LayerMask layer;
 
@@ -23,6 +23,7 @@ using UnityEngine;
         float timer = 2f;
         float counter = 0;
         public WallSlideState(PlayerSM playerSM, Transform playerTransform, Transform groundCheck, Transform wallCheck, PlayerControls controls, ref CharacterController controller, LayerMask layer, Animator animator, PhysicsHelper helper){
+        
             this.playerSM = playerSM;
             this.playerTransform = playerTransform;
             this.groundCheck = groundCheck;
@@ -41,7 +42,8 @@ using UnityEngine;
             controls.Enable();
             controls.WallJump.Jump.performed += ctx => wallJump();
             counter = timer;
-            
+            // Debug.Log("Entered wall move state from " );
+            // playerSM.previousState.PrintStateName();
         }
 
        
@@ -52,20 +54,34 @@ using UnityEngine;
             onWall   = PhysicsHelper.Instance.checkPos(wallCheck.position, 2f, layer);
             
             
-
+            
             playerSM.isGrounded = PhysicsHelper.Instance.checkGroundCollision(playerSM.isGrounded,groundCheck,layer);
             RaycastHit hit = PhysicsHelper.Instance.getHitInfo(wallCheck.position,playerTransform.forward,5f,layer);
             if(hit.collider != null)normal = hit.normal;
             
-            counter -= Time.deltaTime;
-            if(counter <= 0)playerSM.ChangeState(playerSM.airMoveState);
+            
+            //TODO:
+            //originally wanted a counter here to count down the time you didnt hit a wall
+            //once the counter hit 0 you would change to AirMoveState which would allow you to move
+            //again in the air but it was causing weird errors, need to test further in the future :) 
+
+            // counter -= Time.deltaTime;
+            // if(counter <= 0)playerSM.ChangeState(playerSM.airMoveState);
+            
+            
+            
             velocity = PhysicsHelper.Instance.applyGravity(velocity,true);
             Debug.DrawLine(wallCheck.position,wallCheck.position+(playerTransform.forward*2),Color.black,0.2f);
     
             controller.Move(velocity * Time.deltaTime);
+            
 
-            // if(!onWall && !playerSM.isGrounded)playerSM.ChangeState(playerSM.airMoveState);
-            if(playerSM.isGrounded == true)playerSM.ChangeState(playerSM.moveState);
+            //if you hit the floor during a wall jump reset player velocity so they dont
+            //slide around after hitting the ground
+            if(playerSM.isGrounded == true){
+                velocity = Vector3.zero;
+                playerSM.ChangeState(playerSM.moveState);
+            }
         }
 
 
@@ -76,15 +92,19 @@ using UnityEngine;
             playerSM.setDirection(Vector3.zero);
         }
 
-
+        public void PrintStateName(){
+            Debug.Log(STATE_NAME);
+        }
         public void wallJump(){
             if(onWall && !playerSM.isGrounded){
                 animator.SetTrigger("Jump");
-                velocity =  (Vector3.up * 45) + (normal * 55);
-                 Debug.Log("Wall jump " + velocity );
-                Debug.Log("Normal " + normal );
+                velocity =  (Vector3.up * 47) + (normal * 55);
+                // Debug.Log("Wall jump " + velocity );
+                // Debug.Log("Normal " + normal );
                 playerTransform.rotation = Quaternion.FromToRotation(playerTransform.forward,normal) * playerTransform.rotation;
             }
         }
+
+        public void EventTrigger(){}
     }
 

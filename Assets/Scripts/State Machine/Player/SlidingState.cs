@@ -10,6 +10,7 @@ using Unity.Collections.LowLevel.Unsafe;
 
     public class SlidingState : IState
     {
+        string STATE_NAME = "Slide State";
         PlayerSM playerSM;
         Transform playerTransform;
         Transform groundCheck;
@@ -103,5 +104,11 @@ using Unity.Collections.LowLevel.Unsafe;
             animator.SetTrigger("ExitSlide");
 
         }
+
+
+        public void PrintStateName(){
+            Debug.Log(STATE_NAME);
+        }
+        public void EventTrigger(){}
     }
 

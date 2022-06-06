@@ -10,4 +10,6 @@ using UnityEngine;
         void Tick();
         void FixedTick();
         void Exit();
+        void PrintStateName();
+        void EventTrigger();
     }
