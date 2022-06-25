@@ -35,13 +35,12 @@ using UnityEngine.InputSystem;
         PhysicsHelper helper;
         bool jumpButtonHeld = false;
 
-        Animator animator;
         LayerMask layer;
         bool sliding = false;
-        public AirMoveState(PlayerSM _playerSM, Animator animator, Transform playerTransform, Transform cam, Transform wallCheck, AnimationCurve accelCurve, PlayerControls controls, ref CharacterController controller, ref Vector2 move, float walkSpeed, float runSpeed, float turnSmoothVelocity, float turnSmoothTime, LayerMask layer, PhysicsHelper helper ){
+        public AirMoveState(PlayerSM _playerSM,  Transform playerTransform, Transform cam, Transform wallCheck, AnimationCurve accelCurve, PlayerControls controls, ref CharacterController controller, ref Vector2 move, float walkSpeed, float runSpeed, float turnSmoothVelocity, float turnSmoothTime, LayerMask layer, PhysicsHelper helper ){
             playerSM = _playerSM;
            
-            this.animator = animator;
+          
             this.playerTransform = playerTransform;
             this.cam = cam;
             this.wallCheck = wallCheck;
@@ -82,7 +81,9 @@ using UnityEngine.InputSystem;
             Debug.Log("AirMove velocity " + velocity);
             Debug.Log("AirMove speed " + speed);
             Debug.Log("AirMove direction " + direction);
-            animator.SetBool("IsGrounded", false);
+          
+            EventManager.current.OnPlayerTriggerGroundedUpdate(playerSM.isGrounded);
+
 
         }
 
@@ -101,7 +102,7 @@ using UnityEngine.InputSystem;
             else {
                 controls.Air_Move.Enable();
                 velocity = PhysicsHelper.Instance.applyGravity(velocity,true); 
-
+                EventManager.current.OnPlayerTriggerGroundedUpdate(playerSM.isGrounded);
 
                 if(PhysicsHelper.Instance.checkPos(wallCheck.position,1f,layer) && playerSM.isGrounded == false)playerSM.ChangeState(playerSM.wallSlide);
 
