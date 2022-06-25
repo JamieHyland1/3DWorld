@@ -16,7 +16,7 @@ using Unity.Collections.LowLevel.Unsafe;
         Transform groundCheck;
         Transform cam;
         CharacterController controller;
-        Animator animator;
+     
        // PhysicsHelper helper;
         PlayerControls controls;
         Vector2 move;
@@ -30,18 +30,20 @@ using Unity.Collections.LowLevel.Unsafe;
         float slideTimer = 1;
         float counter = 0;
         Vector3 velocity;
-        public SlidingState(PlayerSM playerSM, Transform playerTransform, Transform groundCheck, Transform cam, ref CharacterController controller, PlayerControls controls, Animator animator, float turnSmoothTime, float turnSmoothVelocity){
+        public SlidingState(PlayerSM playerSM, Transform playerTransform, Transform groundCheck, Transform cam, ref CharacterController controller, PlayerControls controls, float turnSmoothTime, float turnSmoothVelocity){
             this.playerSM = playerSM;
             this.playerTransform = playerTransform;
             this.groundCheck = groundCheck;
             this.cam = cam;
             this.controller = controller;
             this.controls = controls;
-            this.animator = animator;
+            
         }
 
         public void Enter(){
-            animator.SetBool("IsSliding", true);  
+           //change to eventManager method
+           // animator.SetBool("IsSliding", true);  
+            EventManager.current.OnPlayerTriggerSlidingUpdate(true);
             move = new Vector2();
             controller.height = 4f;
             controller.radius = 2;
@@ -100,8 +102,9 @@ using Unity.Collections.LowLevel.Unsafe;
             playerSM.setVelocity(velocity);
             playerSM.setDirection(direction);
             controls.Sliding.Disable();
-            animator.SetBool("IsSliding", false);
-            animator.SetTrigger("ExitSlide");
+           //set to eventmanager method
+            EventManager.current.OnPlayerTriggerSlidingUpdate(false);
+            // animator.SetTrigger("ExitSlide");
 
         }
 

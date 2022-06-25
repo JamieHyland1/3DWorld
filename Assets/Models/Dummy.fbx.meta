@@ -71,7 +71,7 @@ ModelImporter:
     materialImportMode: 2
     materialName: 0
     materialSearch: 1
-    materialLocation: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -81,7 +81,89 @@ ModelImporter:
     rigImportErrors: 
     rigImportWarnings: 
     animationImportErrors: 
-    animationImportWarnings: 
+    animationImportWarnings: "\nClip 'Armature|AirDash' has import animation warnings
+      that might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'Torso' has translation animation that will
+      be discarded.\n\t'Forearm.L' has translation animation that will be discarded.\n\t'Forearm.R'
+      has translation animation that will be discarded.\n\t'UpperLeg.L' has translation
+      animation that will be discarded.\n\t'Shin.L' has translation animation that
+      will be discarded.\n\t'Foot.L' has translation animation that will be discarded.\n\t'UpperLeg.R'
+      has translation animation that will be discarded.\n\t'Shin.R' has translation
+      animation that will be discarded.\n\t'Foot.R' has translation animation that
+      will be discarded.\n\nClip 'Armature|ExitSlide' has import animation warnings
+      that might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'Torso' has translation animation that will
+      be discarded.\n\t'Forearm.L' has translation animation that will be discarded.\n\t'Forearm.R'
+      has translation animation that will be discarded.\n\t'UpperLeg.L' has translation
+      animation that will be discarded.\n\t'Shin.L' has translation animation that
+      will be discarded.\n\t'UpperLeg.R' has translation animation that will be discarded.\n\t'Shin.R'
+      has translation animation that will be discarded.\n\nClip 'Armature|Idle' has
+      import animation warnings that might lower retargeting quality:\nNote: Activate
+      translation DOF on avatar to improve retargeting quality.\n\t'UpperLeg.L' has
+      translation animation that will be discarded.\n\t'UpperLeg.R' has translation
+      animation that will be discarded.\n\nClip 'Armature|Jumping' has import animation
+      warnings that might lower retargeting quality:\nNote: Activate translation
+      DOF on avatar to improve retargeting quality.\n\t'Torso' has translation animation
+      that will be discarded.\n\nClip 'Armature|Naruto_Run' has import animation
+      warnings that might lower retargeting quality:\nNote: Activate translation
+      DOF on avatar to improve retargeting quality.\n\t'UpperLeg.L' has translation
+      animation that will be discarded.\n\t'Shin.L' has translation animation that
+      will be discarded.\n\t'UpperLeg.R' has translation animation that will be discarded.\n\t'Shin.R'
+      has translation animation that will be discarded.\n\t'Foot.R' has translation
+      animation that will be discarded.\n\nClip 'Armature|NewSlide' has import animation
+      warnings that might lower retargeting quality:\nNote: Activate translation
+      DOF on avatar to improve retargeting quality.\n\t'Torso' has translation animation
+      that will be discarded.\n\t'UpperLeg.R' has translation animation that will
+      be discarded.\n\nClip 'Armature|RegularRun.001' has import animation warnings
+      that might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'UpperLeg.L' has translation animation that
+      will be discarded.\n\t'Shin.L' has translation animation that will be discarded.\n\t'Foot.L'
+      has translation animation that will be discarded.\n\t'UpperLeg.R' has translation
+      animation that will be discarded.\n\t'Shin.R' has translation animation that
+      will be discarded.\n\t'Foot.R' has translation animation that will be discarded.\n\nClip
+      'Armature|RegularRun.002' has import animation warnings that might lower retargeting
+      quality:\nNote: Activate translation DOF on avatar to improve retargeting quality.\n\t'Bicep.L'
+      has translation animation that will be discarded.\n\t'Forearm.L' has translation
+      animation that will be discarded.\n\t'Bicep.R' has translation animation that
+      will be discarded.\n\t'Forearm.R' has translation animation that will be discarded.\n\t'UpperLeg.L'
+      has translation animation that will be discarded.\n\t'Shin.L' has translation
+      animation that will be discarded.\n\t'Foot.L' has translation animation that
+      will be discarded.\n\t'UpperLeg.R' has translation animation that will be discarded.\n\t'Shin.R'
+      has translation animation that will be discarded.\n\t'Foot.R' has translation
+      animation that will be discarded.\n\nClip 'Armature|Running' has import animation
+      warnings that might lower retargeting quality:\nNote: Activate translation
+      DOF on avatar to improve retargeting quality.\n\t'Torso' has translation animation
+      that will be discarded.\n\t'Forearm.L' has translation animation that will
+      be discarded.\n\t'Forearm.R' has translation animation that will be discarded.\n\t'UpperLeg.L'
+      has translation animation that will be discarded.\n\t'Shin.L' has translation
+      animation that will be discarded.\n\t'UpperLeg.R' has translation animation
+      that will be discarded.\n\t'Shin.R' has translation animation that will be
+      discarded.\n\nClip 'Armature|running_left' has import animation warnings that
+      might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'Torso' has translation animation that will
+      be discarded.\n\t'UpperLeg.L' has translation animation that will be discarded.\n\t'Shin.L'
+      has translation animation that will be discarded.\n\t'UpperLeg.R' has translation
+      animation that will be discarded.\n\t'Shin.R' has translation animation that
+      will be discarded.\n\nClip 'Armature|running_right' has import animation warnings
+      that might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'UpperLeg.L' has translation animation that
+      will be discarded.\n\t'Shin.L' has translation animation that will be discarded.\n\t'UpperLeg.R'
+      has translation animation that will be discarded.\n\t'Shin.R' has translation
+      animation that will be discarded.\n\nClip 'Armature|Walking' has import animation
+      warnings that might lower retargeting quality:\nNote: Activate translation
+      DOF on avatar to improve retargeting quality.\n\t'UpperLeg.L' has translation
+      animation that will be discarded.\n\t'Shin.L' has translation animation that
+      will be discarded.\n\t'Foot.L' has translation animation that will be discarded.\n\t'UpperLeg.R'
+      has translation animation that will be discarded.\n\t'Shin.R' has translation
+      animation that will be discarded.\n\t'Foot.R' has translation animation that
+      will be discarded.\n\nClip 'Armature|WalkingNew' has import animation warnings
+      that might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'Torso' has translation animation that will
+      be discarded.\n\t'UpperLeg.L' has translation animation that will be discarded.\n\t'Shin.L'
+      has translation animation that will be discarded.\n\t'Foot.L' has translation
+      animation that will be discarded.\n\t'UpperLeg.R' has translation animation
+      that will be discarded.\n\t'Shin.R' has translation animation that will be
+      discarded.\n\t'Foot.R' has translation animation that will be discarded.\n"
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
@@ -463,88 +545,248 @@ ModelImporter:
   importAnimation: 1
   humanDescription:
     serializedVersion: 3
-    human: []
+    human:
+    - boneName: Pelvis
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: UpperLeg.L
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: UpperLeg.R
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Shin.L
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Shin.R
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Foot.L
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Foot.R
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Torso
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Head
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Bicep.L
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Bicep.R
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Forearm.L
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Forearm.R
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Hand.L
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Hand.R
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
     skeleton:
     - name: Dummy(Clone)
       parentName: 
-      position: {x: -0, y: 0.1095939, z: 0}
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Cube
+      parentName: Dummy(Clone)
+      position: {x: -0, y: 0, z: 0}
       rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
       scale: {x: 100, y: 100, z: 100}
-    - name: Pelvis
+    - name: Armature
       parentName: Dummy(Clone)
-      position: {x: -0, y: -0.0022040152, z: 0.040136177}
-      rotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071067}
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: Bone
+      parentName: Armature
+      position: {x: -0, y: 0, z: -0.013785549}
+      rotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
+      scale: {x: 1, y: 0.9999998, z: 0.9999998}
+    - name: Pelvis
+      parentName: Bone
+      position: {x: -0, y: 0.05558183, z: 0.0022040152}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: Torso
       parentName: Pelvis
-      position: {x: -0, y: 0.01771628, z: 0.0035264976}
-      rotation: {x: 0.24425256, y: 0.0051773675, z: 0.0026609267, w: 0.96969426}
-      scale: {x: 0.99999994, y: 0.99999994, z: 0.99999994}
+      position: {x: 0.0000062161685, y: 0.01666069, z: -0.0008520755}
+      rotation: {x: -0, y: 0.000000001455192, z: 7.27596e-10, w: 1}
+      scale: {x: 1, y: 1.0000001, z: 0.9999999}
     - name: Bicep.L
       parentName: Torso
-      position: {x: -0.011843581, y: 0.010363471, z: 0.0012314895}
-      rotation: {x: 0.086875744, y: -0.2333811, z: 0.6249028, w: 0.7399207}
-      scale: {x: 1.0000001, y: 1.0000001, z: 0.99999994}
+      position: {x: -0.011843579, y: 0.01036347, z: 0.001231487}
+      rotation: {x: 0.00000014796255, y: -0.00000023942707, z: 0.7209037, w: 0.69303536}
+      scale: {x: 1.0000008, y: 1.0000008, z: 1.0000004}
     - name: Forearm.L
       parentName: Bicep.L
-      position: {x: -0.0018246252, y: 0.014452718, z: 0.0034144185}
-      rotation: {x: 0.19787687, y: -0.15566367, z: 0.04074358, w: 0.96693}
-      scale: {x: 1, y: 1.0000001, z: 1.0000001}
+      position: {x: 0.00013792932, y: 0.019065492, z: 0.0035868871}
+      rotation: {x: 0.15449072, y: -0.06814925, z: -0.029155968, w: 0.9852097}
+      scale: {x: 1, y: 0.9999994, z: 1.0000007}
     - name: Hand.L
       parentName: Forearm.L
-      position: {x: -0.0002569566, y: 0.013959612, z: -0.0018380688}
-      rotation: {x: 0.04852896, y: -0.00000013451097, z: -0.0067842854, w: 0.9987988}
-      scale: {x: 0.9999999, y: 0.99999994, z: 0.9999999}
+      position: {x: -0.00025695653, y: 0.01395961, z: -0.0018380681}
+      rotation: {x: 0.048528995, y: -0.00000015646215, z: -0.0067842943, w: 0.9987987}
+      scale: {x: 1, y: 1.0000001, z: 0.99999976}
+    - name: Hand.L_end
+      parentName: Hand.L
+      position: {x: -0, y: 0.00454632, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
     - name: Head
       parentName: Torso
-      position: {x: -6.519257e-11, y: 0.016551187, z: 0.0000000031062513}
-      rotation: {x: -0.16424358, y: 0.0005306223, z: -0.0019240782, w: 0.98641783}
-      scale: {x: 0.99999994, y: 1, z: 1}
+      position: {x: 7.4505804e-11, y: 0.01655118, z: -3.1897798e-10}
+      rotation: {x: -1.0587916e-18, y: -0.0000000014551921, z: -2.220446e-16, w: 1}
+      scale: {x: 0.9999999, y: 1, z: 0.9999997}
+    - name: Head_end
+      parentName: Head
+      position: {x: -0, y: 0.01, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
     - name: Bicep.R
       parentName: Torso
-      position: {x: 0.011843584, y: 0.010363466, z: 0.0012314918}
-      rotation: {x: -0.08655235, y: -0.22188164, z: 0.62942636, w: -0.7396619}
-      scale: {x: 1, y: 1.0000002, z: 0.99999994}
+      position: {x: 0.011843582, y: 0.01036347, z: 0.0012314869}
+      rotation: {x: -0.13283317, y: 0.1322443, z: -0.69790095, w: 0.6912316}
+      scale: {x: 1.0000006, y: 1.0000007, z: 1.0000002}
     - name: Forearm.R
       parentName: Bicep.R
-      position: {x: 0.0018246281, y: 0.014452716, z: 0.0034144218}
-      rotation: {x: 0.1979795, y: 0.15558937, z: -0.04069029, w: 0.96692324}
-      scale: {x: 1, y: 1.0000001, z: 1.0000002}
+      position: {x: -0.0001379317, y: 0.019065494, z: 0.003586893}
+      rotation: {x: 0.08587834, y: 0.06714484, z: 0.021127578, w: 0.9938159}
+      scale: {x: 1.0000002, y: 0.9999998, z: 1.0000002}
     - name: Hand.R
       parentName: Forearm.R
-      position: {x: 0.0002569547, y: 0.0139596155, z: -0.0018380686}
-      rotation: {x: 0.04852897, y: 0.00000013475247, z: 0.0067842416, w: 0.9987988}
-      scale: {x: 1, y: 1, z: 0.9999999}
+      position: {x: 0.0002569562, y: 0.013959612, z: -0.0018380738}
+      rotation: {x: 0.048528988, y: 0.00000010430811, z: 0.006784297, w: 0.9987987}
+      scale: {x: 1.0000007, y: 1.000001, z: 0.99999976}
+    - name: Hand.R_end
+      parentName: Hand.R
+      position: {x: -0, y: 0.00454632, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
     - name: UpperLeg.L
       parentName: Pelvis
-      position: {x: -0.0035902758, y: -0.004860101, z: 0.0013319188}
-      rotation: {x: 0.7069528, y: 0.014753984, z: 0.7069529, w: 0.0147511605}
-      scale: {x: 1, y: 1, z: 1}
+      position: {x: -0.0035902762, y: -0.0036731814, z: 0.0020895875}
+      rotation: {x: 0.70773035, y: 0.014610527, z: 0.70604235, w: 0.02021533}
+      scale: {x: 1, y: 1.0000001, z: 1.0000001}
     - name: Shin.L
       parentName: UpperLeg.L
-      position: {x: -0.0008086103, y: 0.017278064, z: -5.968288e-11}
-      rotation: {x: 0.0000000889, y: -0.00000031184186, z: 0.11477767, w: 0.9933912}
-      scale: {x: 0.99999994, y: 0.99999994, z: 1}
+      position: {x: -0.003698377, y: 0.012282923, z: -0.0000000011362208}
+      rotation: {x: -0, y: -0, z: 3.5527133e-15, w: 1}
+      scale: {x: 1.0000006, y: 1.0000001, z: 1.0000002}
     - name: Foot.L
       parentName: Shin.L
-      position: {x: -2.1236543e-10, y: 0.017687328, z: 1.5609336e-10}
-      rotation: {x: -0.0000002349373, y: 0.000000011301113, z: -0.7287568, w: 0.6847726}
-      scale: {x: 0.9999999, y: 0.9999999, z: 1}
+      position: {x: -0.0000000032132093, y: 0.017687332, z: -6.879361e-11}
+      rotation: {x: 0.002172261, y: 0.003523129, z: -0.6450507, w: 0.7641286}
+      scale: {x: 1.0000002, y: 1.0000001, z: 1.0000005}
+    - name: Foot.L_end
+      parentName: Foot.L
+      position: {x: -0, y: 0.005901417, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
     - name: UpperLeg.R
       parentName: Pelvis
-      position: {x: 0.0035902758, y: -0.004860101, z: 0.0013319188}
-      rotation: {x: -0.7069528, y: 0.014753984, z: 0.7069529, w: -0.0147511605}
-      scale: {x: 1, y: 1, z: 1}
+      position: {x: 0.0035902762, y: -0.006287453, z: -0.002098264}
+      rotation: {x: 0.70710695, y: 0.00000008940697, z: -0.7071067, w: -0.00000008940697}
+      scale: {x: 0.99999976, y: 0.9999998, z: 0.9999998}
     - name: Shin.R
       parentName: UpperLeg.R
-      position: {x: 0.0008086103, y: 0.017278064, z: -5.968288e-11}
-      rotation: {x: 0.00000009062927, y: 0.00000031184186, z: -0.11477765, w: 0.9933912}
-      scale: {x: 0.99999994, y: 0.99999994, z: 1}
+      position: {x: 0.00015788441, y: 0.019402925, z: 2.5974315e-11}
+      rotation: {x: 0.00000002107342, y: 2.664535e-15, z: 0.00000006322028, w: 1}
+      scale: {x: 1.0000002, y: 1.0000004, z: 1.0000001}
     - name: Foot.R
       parentName: Shin.R
-      position: {x: -9.354593e-11, y: 0.017687328, z: 1.582139e-10}
-      rotation: {x: -0.00000023493729, y: -0.000000011301124, z: 0.7287568, w: 0.6847726}
-      scale: {x: 0.9999999, y: 0.9999999, z: 1}
+      position: {x: 0.0000000030641973, y: 0.01768733, z: -1.4002367e-10}
+      rotation: {x: -0.00000025418186, y: 0.000000013985959, z: 0.66367805, w: 0.74801844}
+      scale: {x: 1.0000002, y: 1.0000008, z: 1.0000006}
+    - name: Foot.R_end
+      parentName: Foot.R
+      position: {x: -0, y: 0.005901417, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5
@@ -559,7 +801,7 @@ ModelImporter:
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
-  animationType: 2
+  animationType: 3
   humanoidOversampling: 1
   avatarSetup: 1
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1

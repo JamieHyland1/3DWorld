@@ -89,7 +89,7 @@ using UnityEngine.InputSystem;
 
         //====================================================================================================    
         [Header("External References")]
-        [SerializeField] private Animator animator;
+       
         [SerializeField] private Transform cam;
         [SerializeField] public Transform groundCheck;
         [SerializeField] private Transform slopeCheck;
@@ -149,12 +149,12 @@ using UnityEngine.InputSystem;
             helper.runSpeed = runSpeed;
             helper.afterDashSpeed = 150;
             helper.jumpVelocity = jumpVelocity;
-            wallSlide  = new WallSlideState(this, playerTransform, groundCheck, wallCheck, controls,  ref controller, groundLayer, animator, helper);
-            moveState  = new MoveState(this, animator,  playerTransform,  cam,  accelCurve, controls, ref controller, ref move,  moveSpeed,  runSpeed,  turnSmoothVelocity,  turnSmoothTime, groundLayer, helper );
-            airMoveState  = new AirMoveState(this, animator,  playerTransform,  cam, wallCheck,  accelCurve, controls, ref controller, ref move,  moveSpeed,  runSpeed,  turnSmoothVelocity,  turnSmoothTime, groundLayer, helper );
-            dashState  = new DashState(this, ref controller, animator,dashCurve,playerTransform, runSpeed*4, dashDistance, helper);
-            slideState = new SlidingState(this, playerTransform,groundCheck, cam, ref controller, controls,  animator, 0.4f, 0.3f);
-            animator.SetBool("IsDashing",isDashing);
+            wallSlide  = new WallSlideState(this, playerTransform, groundCheck, wallCheck, controls,  ref controller, groundLayer, helper);
+            moveState  = new MoveState(this,  playerTransform,  cam,  accelCurve, controls, ref controller, ref move,  moveSpeed,  runSpeed,  turnSmoothVelocity,  turnSmoothTime, groundLayer, helper );
+            airMoveState  = new AirMoveState(this,  playerTransform,  cam, wallCheck,  accelCurve, controls, ref controller, ref move,  moveSpeed,  runSpeed,  turnSmoothVelocity,  turnSmoothTime, groundLayer, helper );
+            dashState  = new DashState(this, ref controller, dashCurve,playerTransform, runSpeed*4, dashDistance, helper);
+            slideState = new SlidingState(this, playerTransform,groundCheck, cam, ref controller, controls,   0.4f, 0.3f);
+   
            
             // controls.Gameplay.Slide.started += ctx =>  this.ChangeState(this.slideState);
             // controls.Gameplay.Slide.canceled += ctx => this.ChangeState(this.moveState);

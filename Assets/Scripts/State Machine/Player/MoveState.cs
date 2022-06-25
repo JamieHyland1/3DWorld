@@ -34,13 +34,12 @@ public class MoveState : IState
         PhysicsHelper helper;
         bool jumpButtonHeld = false;
 
-        Animator animator;
         LayerMask layer;
         bool sliding = false;
-        public MoveState(PlayerSM _playerSM, Animator animator, Transform playerTransform, Transform cam, AnimationCurve accelCurve, PlayerControls controls, ref CharacterController controller, ref Vector2 move, float walkSpeed, float runSpeed, float turnSmoothVelocity, float turnSmoothTime, LayerMask layer, PhysicsHelper helper ){
+        public MoveState(PlayerSM _playerSM, Transform playerTransform, Transform cam, AnimationCurve accelCurve, PlayerControls controls, ref CharacterController controller, ref Vector2 move, float walkSpeed, float runSpeed, float turnSmoothVelocity, float turnSmoothTime, LayerMask layer, PhysicsHelper helper ){
             playerSM = _playerSM;
            
-            this.animator = animator;
+           
             this.playerTransform = playerTransform;
             this.cam = cam;
             this.accelCurve = accelCurve;
@@ -67,7 +66,7 @@ public class MoveState : IState
             controls.Ground_Move.Dash.performed += ctx => InitiateDash();
             controls.Ground_Move.Slide.started += ctx => InitiateSlide();
             velocity = playerSM.getVelocity();
-             
+      //       EventManager.current.OnPlayerTriggerDashUpdate(false);
             if(playerSM.getCurrentSpeed() > walkSpeed) speed = Mathf.Clamp(playerSM.getCurrentSpeed(),0,PhysicsHelper.Instance.afterDashSpeed); else speed = walkSpeed;
            
             //Sometime when changing states, controller input can lag and not register immediately causing player to immediately decellerate
@@ -97,7 +96,7 @@ public class MoveState : IState
                 controls.Ground_Move.Enable();
 
 
-                animator.SetBool("IsGrounded", playerSM.isGrounded);
+                EventManager.current.OnPlayerTriggerGroundedUpdate(playerSM.isGrounded);
 
                 if(!playerSM.isGrounded)velocity = PhysicsHelper.Instance.applyGravity(velocity,jumpButtonHeld); 
                 else if(playerSM.isGrounded && velocity.y < 0) velocity.y = 0;
@@ -109,12 +108,12 @@ public class MoveState : IState
                 float xDir = playerSM.scale(0, runSpeed, 0, 2, move.x);
                 float zDir = playerSM.scale(0, runSpeed, 0, 2, move.y);
 
-                animator.SetFloat("Velocity X", move.x * xDir);
-                animator.SetFloat("Velocity Z", move.y * zDir);
+             
+                EventManager.current.OnPlayerTriggerXDirectionUpdate(move.x * xDir);
+                EventManager.current.OnPlayerTriggerYDirectionUpdate(move.y * xDir);
 
             if (direction.magnitude > 0) { 
-                animator.SetBool("IsRunning", true);
-                animator.SetBool("IsWalking", false);
+             
                 float angle = 0;
                 PhysicsHelper.Instance.rotateCharacter(direction,playerTransform,cam,turnSmoothTime,turnSmoothVelocity, out moveDirection, out angle);
                 if(speed < PhysicsHelper.Instance.afterDashSpeed)speed = Mathf.Lerp(PhysicsHelper.Instance.moveSpeed,PhysicsHelper.Instance.runSpeed,accelCurve.Evaluate(accelTime));  
@@ -135,7 +134,7 @@ public class MoveState : IState
             accelTime += Time.deltaTime/2;
             }
             controller.Move(velocity * Time.deltaTime);
-            animator.SetFloat("Speed", speed);
+            EventManager.current.OnTriggerPlayerSpeedUpdate(speed);
             playerSM.isGrounded = helper.checkGroundCollision(playerSM.isGrounded,playerSM.groundCheck,layer);
             if(!playerSM.isGrounded)playerSM.ChangeState(playerSM.airMoveState);
         }
@@ -144,8 +143,7 @@ public class MoveState : IState
             playerSM.ChangeState(playerSM.dashState);
         }
         
-        public void Exit()
-        {
+        public void Exit(){
             playerSM.setDirection(direction);
             playerSM.setVelocity(velocity);
             playerSM.setCurrentSpeed(new Vector3(velocity.x,0f,velocity.y).magnitude);

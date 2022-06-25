@@ -17,13 +17,12 @@ using UnityEngine;
         LayerMask layer;
 
         Vector3 velocity;
-        Animator animator;
+       
         bool onWall;
         Vector3 normal;
         float timer = 2f;
         float counter = 0;
-        public WallSlideState(PlayerSM playerSM, Transform playerTransform, Transform groundCheck, Transform wallCheck, PlayerControls controls, ref CharacterController controller, LayerMask layer, Animator animator, PhysicsHelper helper){
-        
+        public WallSlideState(PlayerSM playerSM, Transform playerTransform, Transform groundCheck, Transform wallCheck, PlayerControls controls, ref CharacterController controller, LayerMask layer, PhysicsHelper helper){
             this.playerSM = playerSM;
             this.playerTransform = playerTransform;
             this.groundCheck = groundCheck;
@@ -31,7 +30,7 @@ using UnityEngine;
             // this.controls = controls;
             this.controller = controller;
             this.layer = layer;
-            this.animator = animator;
+           
             this.helper = helper;
         }
 
@@ -97,10 +96,11 @@ using UnityEngine;
         }
         public void wallJump(){
             if(onWall && !playerSM.isGrounded){
-                animator.SetTrigger("Jump");
-                velocity =  (Vector3.up * 47) + (normal * 55);
-                // Debug.Log("Wall jump " + velocity );
-                // Debug.Log("Normal " + normal );
+               //change to eventmanager method
+                // animator.SetTrigger("Jump");
+                velocity =  (Vector3.up * 45) + (normal * 55);
+                 Debug.Log("Wall jump " + velocity );
+                Debug.Log("Normal " + normal );
                 playerTransform.rotation = Quaternion.FromToRotation(playerTransform.forward,normal) * playerTransform.rotation;
             }
         }
