@@ -100,15 +100,9 @@ using UnityEngine.InputSystem;
             else {
                 controls.Air_Move.Enable();
                 velocity = PhysicsHelper.Instance.applyGravity(velocity,true); 
-<<<<<<< HEAD
-
-                Debug.Log(wallCheck.position);
-                if(PhysicsHelper.Instance.checkPos(wallCheck.position,0.5f,layer) && playerSM.isGrounded == false)playerSM.ChangeState(playerSM.wallSlide);
-=======
                 EventManager.current.OnPlayerTriggerGroundedUpdate(playerSM.isGrounded);
 
                 if(PhysicsHelper.Instance.checkPos(wallCheck.position,1f,layer) && playerSM.isGrounded == false)playerSM.ChangeState(playerSM.wallSlide);
->>>>>>> f33c3351709109116a9555c3d765bf5da98b93a0
 
                 Vector3 currDirection = new Vector3(move.x, 0f, move.y);
                 Debug.Log("Air Move " + direction.magnitude);
