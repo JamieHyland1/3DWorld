@@ -99,7 +99,7 @@ using UnityEngine.InputSystem;
             }
             else {
                 controls.Air_Move.Enable();
-                velocity = PhysicsHelper.Instance.applyGravity(velocity,true); 
+                velocity = PhysicsHelper.Instance.applyGravity(velocity,false); 
                 EventManager.current.OnPlayerTriggerGroundedUpdate(playerSM.isGrounded);
 
                 if(PhysicsHelper.Instance.checkPos(wallCheck.position,1f,layer) && playerSM.isGrounded == false)playerSM.ChangeState(playerSM.wallSlide);
